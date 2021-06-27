@@ -13,7 +13,7 @@ function initiate() {
                 console.log(result[0].name);
 			    var tr = '<tr>';
 			    for(var i = 0; i < result.length; i++){
-			    	tr += '<td>' + (i + 1) + '</td>';
+			    	tr += '<td class="no">' + (i + 1) + '</td>';
 			    	tr += '<td>' + result[i].name + '</td>';
 			    	tr += '<td>' + result[i].email + '</td>';
 			    	tr += '<td><button class="btn btn-primary" onclick="getUserPosts(' + result[i].id + ', \'' + result[i].name + '\')">Get User’s Posts</button></td>';
@@ -48,16 +48,17 @@ function getUserPosts(user_id, name){
         if (xmlhttp.readyState == XMLHttpRequest.DONE) { 
            if (xmlhttp.status == 200) {
            		var result = JSON.parse(xmlhttp.responseText);
-                console.log(result[0].name);
+                console.log(result[0]);
 			    var tr = '<tr>';
 			    for (var i = 0; i < result.length; i++) {
-			    	tr +=  '<td>' + (i + 1) + '</td>';
-			    	tr += '<td>' + result[i].title + '<br/>' + result[i].body + '</td>';
+			    	tr +=  '<td class="number-on-post">' + (i + 1) + '</td>';
+			    	tr += '<td><h4 class="titles">' + result[i].title + '</h4>' + result[i].body + '</td>';
 			    	tr += '</tr>';
 			    }
 			    document.getElementById('posts-list').innerHTML = tr;
 			    document.getElementById('table-title').innerHTML = name + '\'s posts';
 			    document.getElementById('loader').style.display = 'none';
+			    document.getElementById('back-home-btn').style.display = 'block';
            }
            else if (xmlhttp.status == 400) {
               alert('There was an error 400');
@@ -70,4 +71,10 @@ function getUserPosts(user_id, name){
 
     xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/posts?userId=" + user_id, true);
     xmlhttp.send();
+}
+
+function backTo_home(){
+	document.getElementById('back-home-btn').style.display = 'none';	
+	document.getElementById('users-table').style.display = '';
+	document.getElementById('posts-table').style.display = 'none';
 }
