@@ -53,13 +53,14 @@ button{
 	padding-left: 12px;
 	padding-right: 12px;
 	font-weight: 600;
-	background-color: #007399;
-	border: 1px solid #007399;
+	background-color: #E15B64;
+	border: 1px solid #E15B64;
 	color: white;
 	font-size: 17px;
 }
 button:hover{
 	cursor: pointer;
+	background-color: #EECF14;
 }
 .number-on-post{
 	font-size: 60px;
