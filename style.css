@@ -60,7 +60,8 @@ button{
 }
 button:hover{
 	cursor: pointer;
-	background-color: #EECF14;
+	background-color: #F8B26A;
+	border: 1px solid #F8B26A;
 }
 .number-on-post{
 	font-size: 60px;
